@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type"
+              content="text/html;charset=utf-8" />
+        <title>From STUPID to SOLID code!</title>
+        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script>
+            document.write('<link rel="stylesheet" href="reveal.js/css/print/' +
+                (window.location.search.match(/print-pdf/gi) ? 'pdf' : 'paper') +
+                '.css" type="text/css" media="print">'
+            );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section>
+                        <p><i>Algiers Developer Meetup - Algiers, August 22nd 2015</i></p><br/>
+                        <h1 class="title">Revision <strong>Controle</strong></h1>
+                        <p><em>Ahmed SIOUANI</em></p>
+                    </section>
+                    <section>
+                        <p>Lead Developer @
+                            <a href="http://www.thefork.com/">
+                                <img class="company" src="images/lafourchette.png" />
+                            </a>
+                        </p>
+                        <div id="left">
+                            <br/>
+                            <p><a href="http://www.ahsio.com">www.ahsio.com</a></p>
+                            <p>
+                                <a href="https://connect.sensiolabs.com/badge/70/sensiolabs-certified-symfony-developer-advanced">
+                                    <img class="icon no-border" src="images/certified.png"/>
+                                    <i>Symfony Certified Developer</i>
+                                </a>
+                            </p>
+                            <p>
+                                <a href="https://twitter.com/ahmedsiouani">
+                                    <img class="icon no-border" src="images/twitter.png"/> @ahmedsiouani
+                                </a>
+                                <a href="https://github.com/ahsio">
+                                    <img class="icon no-border" src="images/github.png"/> github.com/ahsio
+                                </a>
+                            </p>
+                        </div>
+                        <div id="right">
+                            <a href="http://stackoverflow.com/users/649811/ahmed-siouani?tab=profile">
+                                <img class="left" src="images/ahmed_stack.png" />
+                            </a>
+                        </div>
+                    </section>
+                </section>
+                <!-- Introduction -->
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Why should I use <strong>version control</strong>?
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Have you ever looked for a way
+
+                            * To share your code with other developers
+                            * To recall specific versions of your code later
+                            * To maintain multiple versions of your project
+                            * To review the history of your code
+                            * To find out the guilty code change that broke your project
+                            * To revert back any code change introduced by mistake
+                            * To let developers work on a same file at the same time
+                            * ...
+
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## The point here is to <strong>track</strong> and <strong>provide control</strong> over changes to source code
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Version Control Systems
+
+                            * Local Version Control Systems
+                            * Centralized Version Control Systems
+                            * Distributed Version Control Systems
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            #### Local Version Control Systems
+
+                            ![](images/local.png)
+
+                            <p><b>Example: </b> RCS</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## But <strong>How to collaborate</strong> with developers on other systems?</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            #### Centralized Version Control Systems
+
+                            ![](images/centralized.png)
+
+                            <p><b>Example: </b>CVS, Subversion, and Perforce</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Ok but the centralized server represents a <strong>single point of failure!</strong>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            #### Distributed Version Control Systems
+
+                            ![](images/distributed.png)
+
+                            <p><b>Example: </b>Git, Mercurial & Bazaar</p>
+                        </script>
+                    </section>
+                </section>
+
+                <!-- Git -->
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Git
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ###The story behind GIT
+                            <ul>
+                                <li>In <strong>2002</strong>, the Linux kernel project began using a proprietary DVCS system called <strong>BitKeeper</strong></li><br/>
+                                <li>In <strong>2005</strong>, the relationship between the Linux kernel community and the company that developed BitKeeper broke down</li><br/>
+                                <li>The Linux development community developed GIT based on some of the lessons they learned while using BitKeeper</li>
+                            </ul>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Git main technical specifications are
+
+                            * Speed
+                            * Simple design
+                            * Strong support for non-linear development (thousands of parallel branches)
+                            * Fully distributed
+                            * Ability to handle large projects
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Snapshots, not differences
+
+                            ![](images/svn-structure.png)
+                            <p>Other VCS(s) structure</p>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Snapshots, not differences
+
+                            ![](images/git-structure.png)
+                            <p>Git structure</p>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### In Git
+
+                            <ul>
+                                <li>Nearly every operation is local (No network latency overhead)</li></br>
+                                <li>Git Has Integrity, everything is check-summed before being stored in its database</li></br>
+                                <li>Git Generally Only Adds Data</li>
+                            </ul>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### The three states
+
+                            ![](images/the-three-states.png)
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Git <strong>Branching</strong>
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Branches in a Nutshell
+
+                            ![](images/branching-nutshell.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Branches in a Nutshell
+
+                            ![](images/branching-nutshell-commits.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### lightweight movable pointer everywhere
+
+                            ![](images/git-pointers.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Branching Workflows, Long-Running Branches
+                            #### progressive-stability branching
+
+                            ![](images/progressive-stability-branching.png)
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ##### Remote branches
+
+                            ![](images/remote-branches-1.png)
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ##### Multiple remote servers
+
+                            ![](images/remote-branches-3.png)
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## <strong>Git</strong> in use
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Git tools
+
+                            * Merge
+                            * Rebase
+                            * Stash
+                            * Tags
+                            * Hooks
+                            * History
+                            * ...
+
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### <strong>Changelog</strong>
+
+                            ![](images/changelog.png)
+                        </script>
+                    </section>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Thank you, Questions?
+
+                        <br>
+                        <ul class="me">
+                            <li><a href="http://ahsio.com" title="website">ahsio.com</a></li>
+                        </ul>
+                    </script>
+                </section>
+            </div>
+        </div>
+        <script type="text/javascript" src="reveal.js/lib/js/head.min.js"></script>
+        <script type="text/javascript" src="reveal.js/js/reveal.min.js"></script>
+        <script type="text/javascript">
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'concave',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                ]
+            });
+        </script>
+    </body>
+</html>
